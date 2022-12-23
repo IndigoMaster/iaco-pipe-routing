@@ -2,6 +2,7 @@
 Defines the Point3 class.
 """
 import math
+from copy import deepcopy
 
 
 class Point3:
@@ -32,6 +33,20 @@ class Point3:
         :return: absolute sum
         """
         return abs(self.x) + abs(self.y) + abs(self.z)
+
+    def normalize(self) -> 'Point3':
+        """
+        Interprets the current object as a vector and returns a
+        normalized copy (length 1). The original object is not modified.
+
+        :return: normalized obj
+        """
+        p = deepcopy(self)
+        length = p.distance_to(Point3.zero())
+        p.x /= length
+        p.y /= length
+        p.z /= length
+        return p
 
     @staticmethod
     def zero() -> 'Point3':
