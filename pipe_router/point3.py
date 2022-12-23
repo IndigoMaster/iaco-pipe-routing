@@ -15,16 +15,26 @@ class Point3:
         self.y = y
         self.z = z
 
-    def distance_to(self, other: 'Point3') -> float:
+    def distance_to(self, other: 'Point3', method: str = 'euclidean') -> float:
         """
         Computes the distance from this point to another point.
 
         :param other: other point to measure distance to
+        :param method: distance method; must be one of ['e', 'euclidean', 'm', 'manhattan']
         :return: distance value
         """
-        return math.sqrt((self.x - other.x) ** 2 +
-                         (self.y - other.y) ** 2 +
-                         (self.z - other.z) ** 2)
+        supported_methods = ['e', 'euclidean', 'm', 'manhattan']
+        if method not in supported_methods:
+            raise ValueError(f'Unknown distance method; expected one of {supported_methods}, got {method}')
+
+        if method in ['e', 'euclidean']:
+            return math.sqrt((self.x - other.x) ** 2 +
+                             (self.y - other.y) ** 2 +
+                             (self.z - other.z) ** 2)
+        elif method in ['m', 'manhattan']:
+            return (abs(self.x - other.x) +
+                    abs(self.y - other.y) +
+                    abs(self.z - other.z))
 
     def abs_sum(self) -> float:
         """
