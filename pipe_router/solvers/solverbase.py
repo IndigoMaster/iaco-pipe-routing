@@ -7,8 +7,8 @@ from typing import List, Tuple, Union
 import numpy as np
 
 from pipe_router.ant import Ant
-from pipe_router.pipe_route import PipeRoute
 from pipe_router.grid import Grid
+from pipe_router.pipe_route import PipeRoute
 from pipe_router.point3 import Point3
 from pipe_router.solvers.results import SolverResults
 
@@ -96,26 +96,6 @@ class SolverBase:
         :return: results obj
         """
         raise NotImplementedError('Abstract solve method')
-
-    @staticmethod
-    def roulette_selection(pos_probs: List[Tuple[Point3, float]]) -> Point3:
-        """
-        Probabilistically selects a position from a list of possible positions
-        where each has a selection probability.
-
-        :param pos_probs: dictionary of {position: selection probability}
-        :return: selected position
-        """
-        sorted_items = sorted(pos_probs, key=lambda x: x[1])  # sort by probabilities
-        threshold = np.random.rand()
-        cum_sum = 0
-        selected: Point3 = None  # noqa
-        for pos, prob in sorted_items:
-            cum_sum += prob
-            if threshold < cum_sum:
-                return pos
-        # if we didn't select any, the random threshold was large, so select the last item
-        return sorted_items[-1][0]
 
     def compute_ant_fitness_components(self, ant: Ant, *, update_global_trackers: bool) -> None:
         """
