@@ -207,3 +207,12 @@ class SolverBase:
         ant.elbow_count = count
         logging.debug(f'Elbow count for {ant} is {count}')
         return count
+
+    def set_pipe_route(self, pipe_route: PipeRoute) -> None:
+        """
+        Sets the pipe route to solve for.
+
+        :param pipe_route: pipe route to solver for
+        :return: None
+        """
+        self.pipe_route = pipe_route
