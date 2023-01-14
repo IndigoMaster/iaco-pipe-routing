@@ -40,9 +40,9 @@ class PipeRoute:
         self.anchor_start_pos = self.routing_start_pos
         self.anchor_end_pos = self.routing_end_pos
         if start_pos_normal_dir is not None:
-            self.routing_start_pos += start_pos_normal_dir * unit_grid_size
+            self.routing_start_pos += start_pos_normal_dir
         if end_pos_normal_dir is not None:
-            self.routing_end_pos += end_pos_normal_dir * unit_grid_size
+            self.routing_end_pos += end_pos_normal_dir
 
     def __str__(self):
         return f'{__class__.__name__}({self.anchor_start_pos} to {self.anchor_end_pos})'
