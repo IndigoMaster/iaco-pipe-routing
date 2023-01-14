@@ -1,0 +1,215 @@
+# this file defines the Problem 2 environment (obstacles).
+
+title: "Problem 2: layout only"
+
+layout_volume:
+  true_size_x: 20
+  true_size_y: 20
+  true_size_z: 20
+  grid_size: 1
+
+occupied_space_objects:
+  - name: "bb1"
+    corner1_x: 3
+    corner1_y: 3
+    corner1_z: 12
+    corner2_x: 15
+    corner2_y: 11
+    corner2_z: 18
+
+  - name: "bb2"
+    corner1_x: 2
+    corner1_y: 1
+    corner1_z: 12
+    corner2_x: 5
+    corner2_y: 18
+    corner2_z: 15
+
+  - name: "bb3"
+    corner1_x: 7
+    corner1_y: 16
+    corner1_z: 12
+    corner2_x: 11
+    corner2_y: 18
+    corner2_z: 14
+
+  - name: "bb4"
+    corner1_x: 12
+    corner1_y: 16
+    corner1_z: 12
+    corner2_x: 16
+    corner2_y: 18
+    corner2_z: 14
+
+  - name: "bb5"
+    corner1_x: 15
+    corner1_y: 4
+    corner1_z: 12
+    corner2_x: 17
+    corner2_y: 12
+    corner2_z: 14
+
+  - name: "bb6"
+    corner1_x: 9
+    corner1_y: 12
+    corner1_z: 4
+    corner2_x: 19
+    corner2_y: 18
+    corner2_z: 10
+
+  - name: "bb7"
+    corner1_x: 5
+    corner1_y: 14
+    corner1_z: 4
+    corner2_x: 9
+    corner2_y: 16
+    corner2_z: 6
+
+  - name: "bb8"
+    corner1_x: 7
+    corner1_y: 2
+    corner1_z: 4
+    corner2_x: 19
+    corner2_y: 9
+    corner2_z: 8
+
+  - name: "bb9"
+    corner1_x: 3
+    corner1_y: 5
+    corner1_z: 4
+    corner2_x: 7
+    corner2_y: 8
+    corner2_z: 6
+
+  - name: "bb10"
+    corner1_x: 3
+    corner1_y: 1
+    corner1_z: 2
+    corner2_x: 4
+    corner2_y: 3
+    corner2_z: 5
+
+  - name: "bb11"
+    corner1_x: 1
+    corner1_y: 1
+    corner1_z: 2
+    corner2_x: 2
+    corner2_y: 3
+    corner2_z: 5
+
+free_space_objects:
+  - name: "A"
+    corner1_x: 0
+    corner1_y: 0
+    corner1_z: 11
+    corner2_x: 20
+    corner2_y: 1
+    corner2_z: 13
+  - name: "B"
+    corner1_x: 0
+    corner1_y: 19
+    corner1_z: 11
+    corner2_x: 20
+    corner2_y: 20
+    corner2_z: 13
+  - name: "C"
+    corner1_x: 0
+    corner1_y: 19
+    corner1_z: 2
+    corner2_x: 19
+    corner2_y: 20
+    corner2_z: 4
+  - name: "D"
+    corner1_x: 0
+    corner1_y: 10
+    corner1_z: 2
+    corner2_x: 19
+    corner2_y: 11
+    corner2_z: 4
+  - name: "F"
+    corner1_x: 2
+    corner1_y: 3
+    corner1_z: 0
+    corner2_x: 6
+    corner2_y: 4
+    corner2_z: 2
+  - name: "G"
+    corner1_x: 3
+    corner1_y: 11
+    corner1_z: 0
+    corner2_x: 4
+    corner2_y: 20
+    corner2_z: 4
+  - name: "H"
+    corner1_x: 3
+    corner1_y: 4
+    corner1_z: 0
+    corner2_x: 4
+    corner2_y: 20
+    corner2_z: 2
+
+
+connections:
+  - name: "#1-8to9"
+    start_x: 16
+    start_y: 4
+    start_z: 4
+    end_x: 5
+    end_y: 5
+    end_z: 5
+  - name: "#2-5to8"
+    start_x: 16
+    start_y: 6
+    start_z: 12
+    end_x: 7
+    end_y: 7
+    end_z: 7
+  - name: "#3-1to3"
+    start_x: 3
+    start_y: 7
+    start_z: 17
+    end_x: 8
+    end_y: 17
+    end_z: 14
+  - name: "#4-3to4"
+    start_x: 9
+    start_y: 17
+    start_z: 14
+    end_x: 13
+    end_y: 17
+    end_z: 14
+  - name: "#5-4to5"
+    start_x: 14
+    start_y: 17
+    start_z: 14
+    end_x: 16
+    end_y: 10
+    end_z: 14
+  - name: "#6-4to6"
+    start_x: 14
+    start_y: 17
+    start_z: 12
+    end_x: 16
+    end_y: 15
+    end_z: 10
+  - name: "#7-1to4"
+    start_x: 13
+    start_y: 17
+    start_z: 12
+    end_x: 13
+    end_y: 7
+    end_z: 12
+  - name: "#8-6to7"
+    start_x: 12
+    start_y: 15
+    start_z: 4
+    end_x: 7
+    end_y: 14
+    end_z: 5
+  - name: "#9-9to7"
+    start_x: 5
+    start_y: 6
+    start_z: 6
+    end_x: 7
+    end_y: 15
+    end_z: 6
