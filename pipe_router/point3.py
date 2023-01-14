@@ -15,6 +15,17 @@ class Point3:
         self.y = y
         self.z = z
 
+    def round_to_int(self) -> 'Point3':
+        """
+        Rounds each coordinate in this point to the nearest integer.
+
+        :return: reference to modified self
+        """
+        self.x = int(round(self.x))
+        self.y = int(round(self.y))
+        self.z = int(round(self.z))
+        return self
+
     def distance_to(self, other: 'Point3', method: str = 'euclidean') -> float:
         """
         Computes the distance from this point to another point.
