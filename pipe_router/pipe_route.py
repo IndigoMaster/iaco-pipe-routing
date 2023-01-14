@@ -1,5 +1,5 @@
 """
-(Pipe) Connection class definition.
+PipeRoute class definition.
 """
 
 from typing import List, Union
@@ -33,8 +33,8 @@ class PipeRoute:
         :param unit_grid_size: unit grid size
         :return: None
         """
-        start_pos_normal_dir = start_pos_normal_dir.normalize()
-        end_pos_normal_dir = end_pos_normal_dir.normalize()
+        start_pos_normal_dir = start_pos_normal_dir.normalize().round_to_int()
+        end_pos_normal_dir = end_pos_normal_dir.normalize().round_to_int()
         self.start_normal_dir = start_pos_normal_dir
         self.end_normal_dir = end_pos_normal_dir
         self.anchor_start_pos = self.routing_start_pos
