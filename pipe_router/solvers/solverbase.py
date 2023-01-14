@@ -149,9 +149,18 @@ class SolverBase:
         :param ant: ant to calculate and update
         :return: fitness value
         """
-        w1 = self.weight_route_len * ant.route_len / self.global_worst_route_len
-        w2 = self.weight_elbow_count * ant.elbow_count / self.global_worst_elbow_count
-        w3 = self.weight_route_eval * ant.route_eval / self.global_worst_route_eval
+        w1 = self.weight_route_len
+        if self.global_worst_route_len != 0:
+            w1 *= ant.route_len / self.global_worst_route_len
+
+        w2 = self.weight_elbow_count
+        if self.global_worst_elbow_count != 0:
+            w2 *= ant.elbow_count / self.global_worst_elbow_count
+
+        w3 = self.weight_route_eval
+        if self.global_worst_route_eval != 0:
+            w3 *= ant.route_eval / self.global_worst_route_eval
+
         fitness = np.exp(-(w1 + w2 + w3))
         # map to [0,1]
         scaled_fitness = (fitness - self.min_possible_fitness) / (self.max_possible_fitness - self.min_possible_fitness)
