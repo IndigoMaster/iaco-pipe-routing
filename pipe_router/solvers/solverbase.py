@@ -10,7 +10,7 @@ from pipe_router.ant import Ant
 from pipe_router.grid import Grid
 from pipe_router.pipe_route import PipeRoute
 from pipe_router.point3 import Point3
-from pipe_router.solvers.results import SolverResults
+from pipe_router.solvers.results import SolverResult
 
 
 class SolverBase:
@@ -20,7 +20,7 @@ class SolverBase:
         """
         Argument mapping for SolverBase class. Used for config file parsing.
         """
-        NAME = 'name'
+        SOLVER_NAME = 'name'
         ANT_COUNT = 'ant_count'
         GRID = 'grid'
         ALPHA = 'alpha'
@@ -63,7 +63,7 @@ class SolverBase:
         self.weight_route_len = weight_route_len
         self.weight_route_eval = weight_route_eval
         self.weight_elbow_count = weight_elbow_count
-        self.connection: Union[PipeRoute, None] = None
+        self.pipe_route: Union[PipeRoute, None] = None
 
         # population fitness components
         self.global_best_fitness: float = 0
@@ -85,12 +85,12 @@ class SolverBase:
             for ant in self.ants:
                 ant.set_next_pos(next_node)
 
-    def solve(self, conn: PipeRoute, show_progress_bar: bool = True) -> SolverResults:
+    def solve(self, route: PipeRoute, show_progress_bar: bool = True) -> SolverResult:
         """
         Abstract method. Solves a single instance of an
         Ant Colony Optimization problem.
 
-        :param conn: connection to solve for
+        :param route: pipe route to solve for
         :param show_progress_bar: if True, displays CLI progress bar
         :return: results obj
         """
