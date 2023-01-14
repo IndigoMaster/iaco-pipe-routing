@@ -74,16 +74,15 @@ class SolverBase:
         self.min_possible_fitness = np.exp(-(self.weight_route_eval + self.weight_elbow_count + self.weight_route_len))
         self.max_possible_fitness = 1
 
-    def reset_ants(self, start_pos: Point3) -> None:
+    def reset_ants(self) -> None:
         """
         Resets the ant population to prepare for a new solver iteration.
         """
         for ant in self.ants:
-            ant.reset_to(start_pos)
-        # add single straight section to enable route ends normal to bounding boxes
-        for ant in self.ants:
-            if self.connection.start_normal_dir is not None:
-                next_node = self.connection.routing_start_pos
+            ant.reset_to(self.pipe_route.anchor_start_pos)
+        if self.pipe_route.routing_start_pos != self.pipe_route.anchor_start_pos:
+            next_node = self.pipe_route.routing_start_pos
+            for ant in self.ants:
                 ant.set_next_pos(next_node)
 
     def solve(self, conn: PipeRoute, show_progress_bar: bool = True) -> SolverResults:
