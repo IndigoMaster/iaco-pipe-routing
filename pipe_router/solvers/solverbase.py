@@ -1,7 +1,7 @@
 """
 Base class for Ant Colony Optimization solvers.
 """
-
+import logging
 from typing import List, Tuple, Union
 
 import numpy as np
@@ -179,6 +179,7 @@ class SolverBase:
         for pos in ant.path_nodes:
             eval_ += self.grid.graph.get_node_val(pos)
         ant.route_eval = eval_
+        logging.debug(f'Route eval for {ant} is {eval_}')
         return eval_
 
     def update_route_length(self, ant: Ant) -> float:
@@ -191,6 +192,7 @@ class SolverBase:
         """
         route_len = (len(ant.path_nodes) - 1) * self.grid.unit_grid_size
         ant.route_len = route_len
+        logging.debug(f'Route length for {ant} is {route_len}')
         return route_len
 
     def update_elbow_count(self, ant: Ant) -> int:
@@ -203,4 +205,5 @@ class SolverBase:
         """
         count = len(ant.path_elbows) - 2
         ant.elbow_count = count
+        logging.debug(f'Elbow count for {ant} is {count}')
         return count
