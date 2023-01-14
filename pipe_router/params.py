@@ -1,13 +1,14 @@
 """
 Params object definition.
 """
-
+from pathlib import Path
 from typing import List, Optional
 
 from pipe_router.bounding_box import BoundingBox
 from pipe_router.grid import Grid
 from pipe_router.pipe_route import PipeRoute
 from pipe_router.solvers.solverbase import SolverBase
+from point3 import Point3
 
 
 class Params:
@@ -32,13 +33,13 @@ class Params:
         self.pipe_routes: List[PipeRoute] = []
         self.solver_list: List[SolverBase] = []
 
-    def set_volume(self, volume: BoundingBox) -> None:
+    def set_volume(self, volume_size: Point3) -> None:
         """
         Sets the volume for these params.
 
-        :param volume: volume bounding box
+        :param volume_size: volume bounding box size
         """
-        self.volume = volume
+        self.volume = BoundingBox(Point3.zero(), volume_size)
 
     def set_grid(self, grid: Grid) -> None:
         """
