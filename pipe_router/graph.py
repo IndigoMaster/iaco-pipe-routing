@@ -1,7 +1,7 @@
 """
 Undirected graph class definition.
 """
-from typing import Optional
+from typing import Optional, List, Callable
 
 
 class UndirectedGraph:
@@ -13,8 +13,8 @@ class UndirectedGraph:
         """
         Builds an undirected graph object.
         """
-        self.graph = {}
-        self.nodes = {}
+        self.edges = {}  # adjacency format: dict of dicts; e.g. {node1: {node2: val2, node3: val3}, ...}
+        self.node_values = {}  # format: dict; e.g. {node1: val1, node2: val2, ...}
 
     def get_node_val(self, key: any) -> any:
         """
@@ -23,14 +23,14 @@ class UndirectedGraph:
         :param key: node key
         :return: stored value
         """
-        return self.nodes[key]
+        return self.node_values[key]
 
     def get_edge(self, key1: any, key2: any) -> any:
         """
         Gets the value stored in the edge connecting two nodes
 
-        :param key1: node key for first node
-        :param key2: node key for second node
+        :param key1: key for first node
+        :param key2: key for second node
         :return: stored value
         """
         if key1 not in self.graph or key2 not in self.graph:
@@ -46,7 +46,7 @@ class UndirectedGraph:
         :param value: value to store
         :return: None
         """
-        self.nodes[key] = value
+        self.node_values[key] = value
 
     def set_edge(self, key1: any, key2: any, value: Optional[any] = None) -> None:
         """
@@ -75,7 +75,7 @@ class UndirectedGraph:
                 self.graph[key1][key2] = val
 
     def __str__(self):
-        return self.__class__.__name__ + '\n' + str(self.graph)
+        return self.__class__.__name__ + '\n' + str(self.edges)
 
     def __repr__(self):
         return self.__str__()
