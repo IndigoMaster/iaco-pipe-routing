@@ -50,7 +50,7 @@ arg_parser.add_argument('--show',
                         help='Show interactive plot (blocking call)')
 arg_parser.add_argument('--loglevel',
                         type=str,
-                        default='warn',
+                        default='warning',
                         help='Log level: debug, info, warn')
 arg_parser.add_argument('--streamlog',
                         action='store_true',
@@ -62,10 +62,8 @@ args = arg_parser.parse_args()
 # arg: quiet mode
 quiet = (args.quiet is True)
 
-# arg: debug
-debug = (args.debug is True)
-
 # arg: log level
+args.loglevel = args.loglevel.upper()
 log_formatter = logging.Formatter('%(levelname)s | %(message)s')
 logging.basicConfig(level=logging.DEBUG)
 logging.getLogger().handlers.clear()
