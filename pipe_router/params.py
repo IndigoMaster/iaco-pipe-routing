@@ -19,6 +19,11 @@ class Params:
         """
         Constructs an empty Params object
         """
+        self.random_seed: float = -1
+        self.config_file_path: Path = Path()
+        self.quiet: bool = False
+        self.output_dir_path: Path = Path()
+
         self.scenario_title: str = "No Title"
         self.volume: Optional[BoundingBox] = None
         self.grid: Optional[Grid] = None
