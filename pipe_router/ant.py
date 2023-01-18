@@ -73,6 +73,17 @@ class Ant:
             if out_candidate_list[i] in invalid_points:
                 out_candidate_list.pop(i)
 
+    def update_elbow_count(self) -> int:
+        """
+        Calculates the number of elbows in the current path.
+        Refer to Equation 4.
+
+        :return: number of elbows in path
+        """
+        count = len(self.path_elbows) - 2
+        self.elbow_count = count
+        return count
+
     def __str__(self):
         return f'Ant {self.id}: @{self.get_current_pos()}; node_count={len(self.path_nodes)}'
 
