@@ -2,8 +2,6 @@
 
 🦺🚧 *This project is a work in progress.*
 
----
-
 ## Overview
 
 This repo attempts to replicate the methodology and findings of the following paper, which lacks a public reference
@@ -23,9 +21,7 @@ _Improved Ant Colony Optimization_ (IACO). Three primary improvements are develo
 
 This repo implements the proposed algorithm and example applications supplied in the paper.
 
-<img src="docs/solving_animation.gif" alt="Solver Animation" title="Solver Animation">
-
----
+<img src="docs/solving_animation.gif" alt="Solver Animation" title="Solver Animation" width=250 align="center">
 
 ## How it works
 
@@ -44,8 +40,6 @@ In this paper, pipe route fitness depends on three characteristics:
 
 Ideally, each of these values is minimized. Therefore, a smaller raw fitness value signifies a better pipe route. An
 exponential transformation converts this representation into a larger-is-better fitness scheme.
-
----
 
 ## Usage
 
