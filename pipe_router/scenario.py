@@ -10,8 +10,8 @@ from pipe_router.bounding_box import BoundingBox
 from pipe_router.grid import Grid
 from pipe_router.parser import Params
 from pipe_router.pipe_route import PipeRoute
-from solvers._solverbase import SolverBase
 from solvers.results import SolverResult
+from solvers.solver_base import SolverBase
 
 
 class PipeRoutingScenario:
