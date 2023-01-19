@@ -1,6 +1,6 @@
 # this file is a minimal example used to test the ACS solver
 
-title: "Problem 1: ACS test"
+title: "BACS test: Multiple Routes"
 
 layout_volume:
   true_size_x: 20
@@ -74,15 +74,25 @@ pipe_connections:
     end_x: 14
     end_y: 18
     end_z: 6
+  - name: "instance 2"
+    start_x: 5
+    start_y: 11
+    start_z: 10
+    end_x: 18
+    end_y: 7
+    end_z: 4
+
 
 solver:
-  - name: ACS
+  - name: BACS
     ant_count: 60
-    iterations: 200
+    iterations: 20
     alpha: 1
     beta: 1
-    q0: 0.9
-    rho: 0.8
+    q_min: 0.4
+    q_max: 0.9
+    rho_min: 0.2
+    rho_max: 0.8
     weight_route_len: 0.4
     weight_elbow_count: 0.3
     weight_route_eval: 0.3
