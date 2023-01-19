@@ -108,6 +108,30 @@ class UndirectedGraph:
                 val = func(self.get_edge(key1, key2))
                 self.set_edge(key1, key2, val)
 
+    def max_value(self) -> any:
+        """
+        Gets the maximum value or object stored on a graph edge.
+
+        :return: max value or object
+        """
+        _key1 = next(iter(self.edges.keys()))
+        _key2 = next(iter(self.edges[_key1].keys()))
+        max_val = self.edges[_key1][_key2]
+        for key1 in self.edges:
+            for key2 in self.edges[key1]:
+                max_val = max(max_val, self.edges[key1][key2])
+        return max_val
+
+    def normalize_edges(self) -> None:
+        """
+        Normalizes all values stored on graph edges to [0,1] range.
+        Assumes all objects/values support this operation.
+
+        :return: None
+        """
+        max_val = self.max_value()
+        self.update_edges(lambda val: val / max_val)
+
     def __str__(self):
         return self.__class__.__name__ + '\n' + str(self.edges)
 
