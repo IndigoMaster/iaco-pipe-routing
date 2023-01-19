@@ -21,7 +21,9 @@ _Improved Ant Colony Optimization_ (IACO). Three primary improvements are develo
 
 This repo implements the proposed algorithm and example applications supplied in the paper.
 
-<img src="docs/solving_animation.gif" alt="Solver Animation" title="Solver Animation" width=250 align="center">
+<p align="center">
+  <img width=250 src="docs/solving_animation.gif" alt="Solver Animation" title="Solver Animation">
+</p>
 
 ## How it works
 
