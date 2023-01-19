@@ -10,8 +10,8 @@ from pipe_router.bounding_box import BoundingBox
 from pipe_router.grid import Grid
 from pipe_router.parser import Params
 from pipe_router.pipe_route import PipeRoute
+from solvers._solverbase import SolverBase
 from solvers.results import SolverResult
-from solvers.solverbase import SolverBase
 
 
 class PipeRoutingScenario:
@@ -54,10 +54,9 @@ class PipeRoutingScenario:
             return []
 
         for pipe_route in tqdm(self.pipe_routes, desc='Pipe Routes', leave=False, disable=self.params.quiet):
-            for solver in tqdm(self.solvers, desc='Solvers', leave=False, disable=self.params.quiet):
-                logging.info(f'Starting solver "{solver.name}" for pipe route "{pipe_route.name}"')
-                solver.set_pipe_route(pipe_route)
-                result = solver.solve(pipe_route)
+            for solver in tqdm(self.solvers, desc='Solvers    ', leave=False, disable=self.params.quiet):
+                logging.info(f'Starting solver "{solver.solver_name}" for pipe route "{pipe_route.name}"')
+                result = solver.solve(route=pipe_route, show_progress_bar=(not self.params.quiet))
                 results.append(result)
         return results
 
