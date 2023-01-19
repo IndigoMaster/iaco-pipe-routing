@@ -29,7 +29,7 @@ def execute() -> None:
     results = scenario.solve()
 
     viz = Visualizer.from_scenario(scenario, results)
-    viz.render(show=show_plot)
+    viz.render(show=show_plot, title=params.scenario_title)
 
 
 arg_parser = argparse.ArgumentParser()
