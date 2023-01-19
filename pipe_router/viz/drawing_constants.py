@@ -1,6 +1,9 @@
 """
 Visualization constants (colors, line types, etc.)
 """
+from solvers.acs import SolverACS
+from solvers.bacs import SolverBACS
+from solvers.iaco import SolverIACO
 
 DRAW_ARGS_VOLUME = {
     '_box_type': 'wireframe',
@@ -33,8 +36,13 @@ DRAW_ARGS_FREE_SPACE = {
     'alpha': 0.15
 }
 
-DRAW_ARGS_CONNECTION = {
-    'color': 'red',
+DRAW_ARGS_PIPE_ROUTE = {
     'alpha': 0.5,
     'linewidth': 5
+}
+
+SOLVER_COLORS = {
+    SolverACS.ArgMap.SOLVER_NAME: 'orange',
+    SolverBACS.ArgMap.SOLVER_NAME: 'green',
+    SolverIACO.ArgMap.SOLVER_NAME: 'red'
 }
