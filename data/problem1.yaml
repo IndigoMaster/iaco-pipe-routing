@@ -112,28 +112,28 @@ solver:
     weight_elbow_count: 0.3
     weight_route_eval: 0.3
 
-#  - name: BACS
-#    ant_count: 60
-#    iterations: 200
-#    alpha: 1
-#    beta: 1
-#    q_min: 0.4
-#    q_max: 0.9
-#    rho_min: 0.2
-#    rho_max: 0.8
-#    weight_route_len: 0.4
-#    weight_elbow_count: 0.3
-#    weight_route_eval: 0.3
-#
-#  - name: IACO
-#    ant_count: 60
-#    iterations: 200
-#    alpha: 1
-#    beta: 1
-#    q_min: 0.4
-#    q_max: 0.9
-#    rho_min: 0.2
-#    rho_max: 0.8
-#    weight_route_len: 0.4
-#    weight_elbow_count: 0.3
-#    weight_route_eval: 0.3
+  - name: BACS
+    ant_count: 60
+    iterations: 200
+    alpha: 1
+    beta: 1
+    q_min: 0.4
+    q_max: 0.9
+    rho_min: 0.2
+    rho_max: 0.8
+    weight_route_len: 0.4
+    weight_elbow_count: 0.3
+    weight_route_eval: 0.3
+
+  - name: IACO
+    ant_count: 60
+    iterations: 200
+    alpha: 1
+    beta: 1
+    q_min: 0.4
+    q_max: 0.9
+    rho_min: 0.2
+    rho_max: 0.8
+    weight_route_len: 0.4
+    weight_elbow_count: 0.3
+    weight_route_eval: 0.3
