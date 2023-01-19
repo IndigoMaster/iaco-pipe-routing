@@ -54,7 +54,7 @@ arg_parser.add_argument('--loglevel',
                         help='Log level: debug, info, warn')
 arg_parser.add_argument('--streamlog',
                         action='store_true',
-                        help='Show interactive plot (blocking call)')
+                        help='Mirror log stream to stdout')
 
 arg_parser.prog = 'pipe_router'
 args = arg_parser.parse_args()
